@@ -70,3 +70,95 @@ document.getElementById('closeSidebar').addEventListener('click', toggleSidebar)
 renderCategories();
 renderSoftware();
 updateCategoryTitle();
+
+
+
+
+
+const softwareDetails = {
+    1: "ParseHub is a visual data extraction tool for extracting data from websites.",
+    2: "OSINT Framework provides tools and resources for open-source intelligence gathering.",
+    3: "OneDrive is a cloud storage service by Microsoft.",
+    4: "Visual Studio Code is a code editor for development.",
+    5: "Lenso AI helps with image recognition and machine learning.",
+    6: "Virtual Machine Notes is a tool for managing virtual machines.",
+    7: "GitHub is a version control platform for developers.",
+    8: "Nmap is a network scanning tool for security professionals.",
+    9: "Hydra Brute Force is a password-cracking tool.",
+    10: "SQL Injection is an exploitation technique for web applications.",
+    11: "DDoS is a denial-of-service attack technique."
+};
+
+function renderSoftware() {
+    const softwareGrid = document.getElementById('softwareGrid');
+    softwareGrid.innerHTML = '';
+    const filteredSoftware = softwareItems.filter(item => item.category === selectedCategory);
+    filteredSoftware.forEach(software => {
+        const div = document.createElement('div');
+        div.classList.add('software-item');
+        div.textContent = software.name;
+        div.addEventListener('click', () => displaySoftwareDetails(software.id));
+        softwareGrid.appendChild(div);
+    });
+}
+
+function displaySoftwareDetails(softwareId) {
+    const detailsBox = document.getElementById('softwareDetails');
+    detailsBox.textContent = softwareDetails[softwareId] || "No details available.";
+    detailsBox.style.display = 'block';
+}
+
+
+
+
+
+
+
+
+
+// Function to show software details and adjust width
+function displaySoftwareDetails(softwareId) {
+    const detailsBox = document.getElementById('softwareDetails');
+    const softwareItem = document.querySelector('.software-item'); // Get any software button
+    const itemWidth = softwareItem ? softwareItem.offsetWidth : 200; // Default to 200px if no items
+    
+    // Set the width of the details box to twice the width of a software button
+    detailsBox.style.width = `${itemWidth * 1.92}px`;
+    detailsBox.textContent = softwareDetails[softwareId] || "No details available.";
+    detailsBox.style.display = 'block';
+}
+
+// Hide details when clicking outside software items or the detail box
+document.addEventListener('click', function(event) {
+    const detailsBox = document.getElementById('softwareDetails');
+    const softwareItems = document.querySelectorAll('.software-item');
+    const isSoftwareItem = Array.from(softwareItems).some(item => item.contains(event.target));
+    const isDetailsBox = detailsBox.contains(event.target);
+
+    // If clicked outside both the software items and the details box, hide the details
+    if (!isSoftwareItem && !isDetailsBox) {
+        detailsBox.style.display = 'none';
+    }
+}, true);
+
+// Modify renderSoftware to stop event propagation when software item is clicked
+function renderSoftware() {
+    const softwareGrid = document.getElementById('softwareGrid');
+    softwareGrid.innerHTML = '';
+    const filteredSoftware = softwareItems.filter(item => item.category === selectedCategory);
+    filteredSoftware.forEach(software => {
+        const div = document.createElement('div');
+        div.classList.add('software-item');
+        div.textContent = software.name;
+        div.addEventListener('click', (event) => {
+            displaySoftwareDetails(software.id);
+            event.stopPropagation(); // Stop event propagation to prevent hiding details
+        });
+        softwareGrid.appendChild(div);
+    });
+}
+
+// Stop propagation when clicking inside the details box
+document.getElementById('softwareDetails').addEventListener('click', function(event) {
+    event.stopPropagation();
+});

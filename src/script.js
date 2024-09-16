@@ -1,22 +1,22 @@
 const categories = [
-    { id: 1, name: "Productivity" },
-    { id: 2, name: "Design" },
+    { id: 1, name: "OSINT" },
+    { id: 2, name: "Servers" },
     { id: 3, name: "Development" },
-    { id: 4, name: "Communication" },
-    { id: 5, name: "Finance" }
+    { id: 4, name: "Tools" }   
 ];
 
 const softwareItems = [
-    { id: 1, name: "Notion", category: 1 },
-    { id: 2, name: "Figma", category: 2 },
-    { id: 3, name: "Visual Studio Code", category: 3 },
-    { id: 4, name: "Slack", category: 4 },
-    { id: 5, name: "QuickBooks", category: 5 },
-    { id: 6, name: "Trello", category: 1 },
-    { id: 7, name: "Adobe XD", category: 2 },
-    { id: 8, name: "GitHub", category: 3 },
-    { id: 9, name: "Zoom", category: 4 },
-    { id: 10, name: "Wave", category: 5 }
+    { id: 1, name: "ParseHub", category: 1 },
+    { id: 2, name: "OSINT Framework", category: 1},
+    { id: 3, name: "OneDrive", category: 2 },
+    { id: 4, name: "Visual Studio Code", category: 3 },
+    { id: 5, name: "Lenso AI", category: 1 },
+    { id: 6, name: "Virtual Machine Notes", category: 2 },
+    { id: 7, name: "GitHub", category: 3 },
+    { id: 8, name: "Nmap", category: 4 },
+    { id: 9, name: "Hydra Brute Force", category: 4 },
+    { id: 10, name: "SQL Injection", category: 4 },
+    { id: 11, name: "DDoS", category: 4 }
 ];
 
 let selectedCategory = categories[0].id;
@@ -56,7 +56,7 @@ function renderSoftware() {
 function updateCategoryTitle() {
     const categoryTitle = document.getElementById('categoryTitle');
     const category = categories.find(c => c.id === selectedCategory);
-    categoryTitle.textContent = `${category.name} Software`;
+    categoryTitle.textContent = `${category.name} Softwares`;
 }
 
 function toggleSidebar() {

@@ -18,6 +18,15 @@ body, html {
 /* Use Geist font globally or in specific areas */
 
 
+::selection {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+
 .dashboard {
     display: flex;
     height: 100vh;
@@ -135,4 +144,34 @@ body, html {
     background-color: #181818;
     display: none; /* Hidden initially */
     width: auto; /* Allow dynamic width adjustment */
+}
+
+
+
+
+
+
+
+.links-section {
+    margin-top: 10px;
+}
+.links-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.links-section ul li {
+    margin-bottom: 5px;
+    background-color: #181818;
+}
+
+/* Change the link color */
+.links-section a {
+    color: rgb(170, 170, 170); /* You can replace 'blue' with any color you like */
+    text-decoration: none; /* Optional: Remove underline */
+}
+
+/* Change the link color when hovered */
+.links-section a:hover {
+    color: rgb(117, 117, 117); /* Color when the link is hovered */
+    text-decoration: underline; /* Optional: Add underline on hover */
 }

@@ -76,17 +76,16 @@ updateCategoryTitle();
 
 
 const softwareDetails = {
-    1: "ParseHub is a visual data extraction tool for extracting data from websites.",
-    2: "OSINT Framework provides tools and resources for open-source intelligence gathering.",
-    3: "OneDrive is a cloud storage service by Microsoft.",
-    4: "Visual Studio Code is a code editor for development.",
-    5: "Lenso AI helps with image recognition and machine learning.",
-    6: "Virtual Machine Notes is a tool for managing virtual machines.",
-    7: "GitHub is a version control platform for developers.",
-    8: "Nmap is a network scanning tool for security professionals.",
-    9: "Hydra Brute Force is a password-cracking tool.",
-    10: "SQL Injection is an exploitation technique for web applications.",
-    11: "DDoS is a denial-of-service attack technique."
+    1: { description: "ParseHub is a visual data extraction tool for extracting data from websites.", links: ["https://parsehub.com"] },
+    2: { description: "OSINT Framework provides tools and resources for open-source intelligence gathering.", links: ["https://osintframework.com"] },
+    3: { description: "OneDrive is a cloud storage service by Microsoft.", links: ["https://onedrive.live.com"] },
+    4: { description: "Visual Studio Code is a code editor for development.", links: ["https://code.visualstudio.com"] },
+    5: { description: "Lenso AI helps with image recognition and machine learning.", links: ["https://lenso.ai"] },
+    6: { description: "Virtual Machine Notes is a tool for managing virtual machines.", links: ["#"] },
+    7: { description: "GitHub is a version control platform for developers.", links: ["https://github.com"] },
+    8: { description: "Nmap is a network scanning tool for security professionals.", links: ["https://nmap.org"] },
+    9: { description: "Hydra Brute Force is a password-cracking tool.", links: ["#"] },
+    11: { description: "DDoS is a denial-of-service attack technique.", links: ["#"] }
 };
 
 function renderSoftware() {
@@ -116,15 +115,28 @@ function displaySoftwareDetails(softwareId) {
 
 
 
-// Function to show software details and adjust width
 function displaySoftwareDetails(softwareId) {
     const detailsBox = document.getElementById('softwareDetails');
-    const softwareItem = document.querySelector('.software-item'); // Get any software button
-    const itemWidth = softwareItem ? softwareItem.offsetWidth : 200; // Default to 200px if no items
+    const softwareItem = document.querySelector('.software-item');
+    const itemWidth = softwareItem ? softwareItem.offsetWidth : 200;
+
+    const software = softwareDetails[softwareId] || { description: "No details available.", links: [] };
     
-    // Set the width of the details box to twice the width of a software button
+    // Set the width of the details box
     detailsBox.style.width = `${itemWidth * 1.92}px`;
-    detailsBox.textContent = softwareDetails[softwareId] || "No details available.";
+
+    // Create the description and links sections
+    detailsBox.innerHTML = `
+        <p>${software.description}</p>
+        <hr>
+        <div class="links-section">
+            <p>Related Links:</p>
+            <ul>
+                ${software.links.map(link => `<li><a href="${link}" target="_blank">${link}</a></li>`).join('')}
+            </ul>
+        </div>
+    `;
+    
     detailsBox.style.display = 'block';
 }
 

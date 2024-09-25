@@ -12,6 +12,7 @@ const softwareItems = [
     { id: 4, name: "Visual Studio Code", category: 3 },
     { id: 5, name: "Lenso AI", category: 1 },
     { id: 6, name: "Virtual Machine Notes", category: 2 },
+    { id: 12, name: "Virtual Machine", category: 2 },
     { id: 7, name: "GitHub", category: 3 },
     { id: 8, name: "Nmap", category: 4 },
     { id: 9, name: "Hydra Brute Force", category: 4 },

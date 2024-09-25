@@ -59,7 +59,7 @@ body, html {
 }
 
 .close-btn:hover, .open-btn:hover {
-    color: #aaa; /* Light gray color on hover */
+    color: rgb(117, 117, 117); /* Light gray color on hover */
 }
 
 .main-content {

@@ -86,7 +86,8 @@ const softwareDetails = {
     7: { description: "GitHub is a version control platform for developers.", links: ["https://github.com"] },
     8: { description: "Nmap is a network scanning tool for security professionals.", links: ["https://nmap.org"] },
     9: { description: "Hydra Brute Force is a password-cracking tool.", links: ["#"] },
-    11: { description: "DDoS is a denial-of-service attack technique.", links: ["#"] }
+    11: { description: "DDoS is a denial-of-service attack technique.", links: ["#"] },
+    12: { description: "Input correct Credentials and acces the Kali Linux Machine.", links: ["https://cloud.linode.com/linodes/61578532"] },
 };
 
 function renderSoftware() {
